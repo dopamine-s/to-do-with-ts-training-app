@@ -1,23 +1,44 @@
-import { FC } from 'react';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { TodoInterface } from '../../types/todo';
-import TodoItem from './TodoItem/TodoItem';
+import TodoList from '../Todos/TodoList/TodoLIst';
+import NewTodo from './NewTodo/NewTodo';
+import styles from './Todos.module.css';
+import TodosWrapper from './TodosWrapper/TodosWrapper';
 
-interface TodosProps {
-	items: TodoInterface[];
-}
+const Todos = () => {
+	const [todos, setTodos] = useState<TodoInterface[]>([]);
 
-const ToDos: FC<TodosProps> = (props) => {
+	const addTodoHandler = (todoText: string) => {
+		const newTodo = {
+			title: todoText,
+			id: uuidv4(),
+		};
+
+		setTodos((prevTodos) => {
+			return [...prevTodos, newTodo];
+		});
+	};
+
 	return (
-		<ul>
-			{props.items.map((item) => (
-				<TodoItem
-					key={item.id}
-					title={item.title}
-				/>
-			))}
-		</ul>
+		<TodosWrapper>
+			<h1>ToDos</h1>
+			<section className={styles['todos-form']}>
+				<NewTodo onAddTodo={addTodoHandler} />
+			</section>
+			<section id="goals">
+				{todos && todos.length > 0 ? (
+					<div>
+						<h2>Todo List</h2>
+						<TodoList items={todos} />
+					</div>
+				) : (
+					<p className={styles['todos-empty']}>No Todos found. Maybe add one?</p>
+				)}
+			</section>
+		</TodosWrapper>
 	);
 };
 
-export default ToDos;
+export default Todos;

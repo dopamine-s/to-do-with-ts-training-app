@@ -1,0 +1,12 @@
+.todos-form {
+	width: 30rem;
+	max-width: 90%;
+	margin: 1.5rem auto 4rem;
+	padding: 2rem;
+	box-shadow: 0 2px 12px var(--box-shadow-todo-form);
+	border-radius: 10px;
+}
+
+.todos-empty {
+	text-align: center;
+}

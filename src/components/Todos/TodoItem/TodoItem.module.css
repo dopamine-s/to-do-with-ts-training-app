@@ -1,0 +1,9 @@
+.todo-item {
+	margin: 1rem 0;
+	background: var(--background-todo-item);
+	box-shadow: 0 2px 8px var(--box-shadow-todo-item);
+	color: var(--color-todo-item);
+	padding: 1rem 2rem;
+	cursor: pointer;
+	border-radius: 5px;
+}

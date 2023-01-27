@@ -2,29 +2,25 @@
 
 :root {
 	/* Colors */
-	--background-color-primary: rgb(250, 241, 248);
 
-	/* Should be renamed due to roles */
+	--background-primary: rgb(250, 241, 248);
+	--background-input-focus: #fad0ec;
+	--background-input-invalid: #f7f3f3;
+	--background-button: #8b005d;
+	--background-todo-item: #8b005d;
 
-	/* --color-pink-1: #8b005d;
-	--color-pink-2: #ac0e77;
-	--color-pink-3: #fad0ec;
+	--border-input-color: #ccc;
+	--border-input-color-focus: #8b005d;
+	--border-input-color-invalid: #ce0e34;
+	--border-button: #8b005d;
 
-	--color-cream-1: #ecebeb;
+	--box-shadow-button: rgba(0, 0, 0, 0.26);
+	--box-shadow-todo-item: rgba(0, 0, 0, 0.26);
+	--box-shadow-todo-form: rgba(0, 0, 0, 0.2);
 
-	--color-black-primary: #222;
-
-	--color-black-shadow-20: rgba(0, 0, 0, 0.2);
-	--color-black-shadow-26: rgba(0, 0, 0, 0.26);
-
-	--color-white-primary: white;
-
-	--color-red-1: #f80b3b;
-	--color-red-2: #ce0e34; */
-
-	/* Font-sizes */
-
-	/* Font-sizes should be here*/
+	--color-button: white;
+	--color-todo-item: white;
+	--color-label-invalid: #f80b3b;
 }
 
 *,
@@ -39,7 +35,12 @@ html {
 	padding: 0;
 	margin: 0;
 	min-height: 100%;
-	background-color: var(--background-color-primary);
+	background-color: var(--background-primary);
+}
+
+body h1,
+h2 {
+	text-align: center;
 }
 
 ul,

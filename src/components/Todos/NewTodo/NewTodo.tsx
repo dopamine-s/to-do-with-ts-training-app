@@ -1,6 +1,8 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 
+import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
+import styles from './NewTodo.module.css';
 
 interface NewTodoProps {
 	onAddTodo: (todoTitle: string) => void;
@@ -8,11 +10,11 @@ interface NewTodoProps {
 
 const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 	const [title, setTitle] = useState<string>('');
-	// const [isValid, setIsValid] = useState<boolean>(true);
+	const [isValid, setIsValid] = useState<boolean>(true);
 
 	const todoInputChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
 		if (event.target.value.trim().length > 0) {
-			// setIsValid(true);
+			setIsValid(true);
 		}
 		setTitle(event.target.value);
 	};
@@ -23,7 +25,7 @@ const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 		const todoTitle = title;
 
 		if (!todoTitle || todoTitle.trim().length === 0) {
-			// setIsValid(false);
+			setIsValid(false);
 
 			return;
 		}
@@ -34,13 +36,15 @@ const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 
 	return (
 		<form onSubmit={submitHandler}>
-			<label htmlFor="text">Todo text</label>
-			<Input
-				placeholder="Add a new todo"
-				onChange={todoInputChangeHandler}
-				value={title}
-			/>
-			<button>Add Todo</button>
+			<div className={`${styles['inner-wrapper']} ${!isValid && styles.invalid}`}>
+				<label htmlFor="text">Todo text</label>
+				<Input
+					onChange={todoInputChangeHandler}
+					value={title}
+					isValid={isValid}
+				/>
+			</div>
+			<Button type={'submit'}>Add Todo</Button>
 		</form>
 	);
 };
