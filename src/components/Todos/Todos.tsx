@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { TodoInterface } from '../../types/todo';
 import TodoList from '../Todos/TodoList/TodoLIst';
 import NewTodo from './NewTodo/NewTodo';
+import NoTodos from './NoTodos/NoTodos';
 import styles from './Todos.module.css';
 import TodosWrapper from './TodosWrapper/TodosWrapper';
 
@@ -21,20 +22,30 @@ const Todos = () => {
 		});
 	};
 
+	const removeTodoHandler = (todoId: string) => {
+		setTodos((prevTodos) => {
+			return prevTodos.filter((todo) => todo.id !== todoId);
+		});
+	};
+
 	return (
 		<TodosWrapper>
 			<h1>ToDos</h1>
 			<section className={styles['todos-form']}>
 				<NewTodo onAddTodo={addTodoHandler} />
 			</section>
-			<section id="goals">
+			<section className={styles['todos-list']}>
 				{todos && todos.length > 0 ? (
 					<div>
 						<h2>Todo List</h2>
-						<TodoList items={todos} />
+						<p>click the todo to delete</p>
+						<TodoList
+							items={todos}
+							onRemoveTodo={removeTodoHandler}
+						/>
 					</div>
 				) : (
-					<p className={styles['todos-empty']}>No Todos found. Maybe add one?</p>
+					<NoTodos />
 				)}
 			</section>
 		</TodosWrapper>
