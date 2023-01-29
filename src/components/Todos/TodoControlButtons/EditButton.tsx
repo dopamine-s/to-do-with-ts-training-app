@@ -5,14 +5,15 @@ import Button from '../../UI/Button/Button';
 interface EditButtonProps {
 	onClick(): void;
 	classes?: string | undefined;
+	isEditMode: boolean;
 }
 
-const DeleteButton: FC<EditButtonProps> = ({ onClick, classes }) => (
+const DeleteButton: FC<EditButtonProps> = ({ onClick, classes, isEditMode }) => (
 	<Button
 		onClick={onClick}
 		classes={classes}
 	>
-		Edit
+		{isEditMode ? 'Cancel' : 'Edit'}
 	</Button>
 );
 

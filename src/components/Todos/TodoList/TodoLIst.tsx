@@ -7,9 +7,10 @@ interface TodoListProps {
 	items: TodoInterface[];
 	onDoneTodo: (id: string) => void;
 	onRemoveTodo: (id: string) => void;
+	onSaveEditTodo: (id: string, newTodoTitle: string) => void;
 }
 
-const Todos: FC<TodoListProps> = ({ items, onDoneTodo, onRemoveTodo }) => {
+const Todos: FC<TodoListProps> = ({ items, onDoneTodo, onRemoveTodo, onSaveEditTodo }) => {
 	return (
 		<ul>
 			{items.map((item) => (
@@ -20,6 +21,7 @@ const Todos: FC<TodoListProps> = ({ items, onDoneTodo, onRemoveTodo }) => {
 					isFinished={item.isFinished}
 					onRemoveTodo={onRemoveTodo}
 					onDoneTodo={onDoneTodo}
+					onSaveEditTodo={onSaveEditTodo}
 				/>
 			))}
 		</ul>

@@ -3,36 +3,52 @@ import { FC } from 'react';
 import DeleteButton from './DeleteButton';
 import DoneButton from './DoneButton';
 import EditButton from './EditButton';
+import SaveButton from './SaveButton';
 import styles from './TodoControlButtons.module.css';
 
-interface DeleteButtonProps {
+interface TodoControlButtonsProps {
 	onDoneTodo(): void;
-	onEditTodo(): void;
+	onChangeEditMode(): void;
 	onRemoveTodo(): void;
+	onSaveEditTodo(): void;
 	isFinished: boolean;
+	isEditMode: boolean;
 }
 
-const TodoControlButtons: FC<DeleteButtonProps> = ({
+const TodoControlButtons: FC<TodoControlButtonsProps> = ({
 	isFinished,
 	onDoneTodo,
-	onEditTodo,
+	onChangeEditMode,
 	onRemoveTodo,
+	onSaveEditTodo,
+	isEditMode,
 }) => {
 	return (
 		<div className={styles.buttons}>
-			<DoneButton
-				onClick={onDoneTodo}
-				classes="done"
-				isFinished={isFinished}
-			/>
+			{!isEditMode && (
+				<DoneButton
+					onClick={onDoneTodo}
+					classes="done"
+					isFinished={isFinished}
+				/>
+			)}
 			<EditButton
-				onClick={onEditTodo}
+				onClick={onChangeEditMode}
 				classes="edit"
+				isEditMode={isEditMode}
 			/>
-			<DeleteButton
-				onClick={onRemoveTodo}
-				classes="delete"
-			/>
+			{isEditMode && (
+				<SaveButton
+					classes="done"
+					onClick={onSaveEditTodo}
+				/>
+			)}
+			{!isEditMode && (
+				<DeleteButton
+					onClick={onRemoveTodo}
+					classes="delete"
+				/>
+			)}
 		</div>
 	);
 };

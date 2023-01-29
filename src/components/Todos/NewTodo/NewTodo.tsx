@@ -45,7 +45,7 @@ const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 				/>
 			</div>
 			<Button
-				type={'submit'}
+				type="submit"
 				classes="input"
 			>
 				Add Todo

@@ -51,6 +51,27 @@ const Todos = () => {
 		});
 	};
 
+	const saveEditTodoHandler = (todoId: string, newTodoTitle: string): void => {
+		const currentTodo = todos.find((todo) => todo.id === todoId);
+
+		if (!currentTodo) {
+			return;
+		}
+		const currentTodoIndex = todos.indexOf(currentTodo);
+
+		const updatedTodo = {
+			...currentTodo,
+			title: newTodoTitle,
+		};
+		setTodos((prevTodos) => {
+			return [
+				...prevTodos.slice(0, currentTodoIndex),
+				updatedTodo,
+				...prevTodos.slice(currentTodoIndex + 1, prevTodos.length),
+			];
+		});
+	};
+
 	return (
 		<TodosWrapper>
 			<h1>ToDos</h1>
@@ -67,6 +88,7 @@ const Todos = () => {
 							items={todos}
 							onDoneTodo={doneTodoHandler}
 							onRemoveTodo={removeTodoHandler}
+							onSaveEditTodo={saveEditTodoHandler}
 						/>
 					</div>
 				) : (
