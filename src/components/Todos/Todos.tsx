@@ -32,13 +32,14 @@ const Todos = () => {
 		<TodosWrapper>
 			<h1>ToDos</h1>
 			<section className={styles['todos-form']}>
+				<h2>Todo input</h2>
 				<NewTodo onAddTodo={addTodoHandler} />
 			</section>
-			<section className={styles['todos-list']}>
+			<section>
 				{todos && todos.length > 0 ? (
 					<div>
 						<h2>Todo List</h2>
-						<p>click the todo to delete</p>
+						<p className={styles['todos-text']}>use buttons to manage todos</p>
 						<TodoList
 							items={todos}
 							onRemoveTodo={removeTodoHandler}

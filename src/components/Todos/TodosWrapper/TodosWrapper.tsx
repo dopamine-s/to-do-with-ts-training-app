@@ -7,7 +7,7 @@ interface TodosWrapperProps {
 }
 
 const TodosWrapper: FC<TodosWrapperProps> = ({ children }) => (
-	<div className={styles.todos}>{children}</div>
+	<main className={styles.todos}>{children}</main>
 );
 
 export default TodosWrapper;

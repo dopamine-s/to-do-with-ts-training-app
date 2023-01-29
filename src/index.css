@@ -6,20 +6,24 @@
 	--background-primary: rgb(250, 241, 248);
 	--background-input-focus: #fad0ec;
 	--background-input-invalid: #f7f3f3;
-	--background-button: #8b005d;
-	--background-todo-item: #8b005d;
+	--background-button-input: #8b005d;
+	--background-button-done: #0b553e;
+	--background-button-edit: #0d637e;
+	--background-button-delete: #7c1752;
+	--background-todo-item: #rgb(250, 241, 248);
 
 	--border-input-color: #ccc;
 	--border-input-color-focus: #8b005d;
 	--border-input-color-invalid: #ce0e34;
-	--border-button: #8b005d;
+	--border-input-button: #8b005d;
+	--border-color-primary: rgba(0, 0, 0, 0.1);
 
 	--box-shadow-button: rgba(0, 0, 0, 0.26);
 	--box-shadow-todo-item: rgba(0, 0, 0, 0.26);
 	--box-shadow-todo-form: rgba(0, 0, 0, 0.2);
 
 	--color-button: white;
-	--color-todo-item: white;
+	--color-todo-item: black;
 	--color-label-invalid: #f80b3b;
 }
 
@@ -48,10 +52,6 @@ ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-}
-
-button {
-	cursor: pointer;
 }
 
 a {

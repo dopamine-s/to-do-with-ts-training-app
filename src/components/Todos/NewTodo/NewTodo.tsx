@@ -44,7 +44,12 @@ const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 					isValid={isValid}
 				/>
 			</div>
-			<Button type={'submit'}>Add Todo</Button>
+			<Button
+				type={'submit'}
+				classes="input"
+			>
+				Add Todo
+			</Button>
 		</form>
 	);
 };

@@ -1,0 +1,22 @@
+.buttons {
+	display: flex;
+	flex-direction: column;
+	padding: 0.35rem;
+	background-color: var(--background-primary);
+	gap: 0.5rem;
+	border-radius: 0.2rem;
+}
+
+@media (min-width: 768px) {
+	.buttons {
+		margin-left: 1rem;
+	}
+}
+
+@media (min-width: 1600px) {
+	.buttons {
+		flex-direction: row;
+		height: 3.8rem;
+		align-self: top;
+	}
+}

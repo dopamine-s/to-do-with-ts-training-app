@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import TodoControlButtons from '../TodoControlButtons/TodoControlButtons';
 import styles from './TodoItem.module.css';
 
 interface TodoItemProps {
@@ -9,16 +10,26 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = ({ title, id, onRemoveTodo }) => {
+	const onDoneHandler = () => {
+		//
+	};
+
+	const onEditHandler = () => {
+		//
+	};
+
 	const onRemoveHandler = () => {
 		onRemoveTodo(id);
 	};
 
 	return (
-		<li
-			className={styles['todo-item']}
-			onClick={onRemoveHandler}
-		>
-			{title}
+		<li className={styles['todo-item']}>
+			<p>{title}</p>
+			<TodoControlButtons
+				onEditTodo={onEditHandler}
+				onDoneTodo={onDoneHandler}
+				onRemoveTodo={onRemoveHandler}
+			/>
 		</li>
 	);
 };
