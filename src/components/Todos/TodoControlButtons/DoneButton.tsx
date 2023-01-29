@@ -5,14 +5,15 @@ import Button from '../../UI/Button/Button';
 interface DoneButtonProps {
 	onClick(): void;
 	classes?: string | undefined;
+	isFinished: boolean;
 }
 
-const DeleteButton: FC<DoneButtonProps> = ({ onClick, classes }) => (
+const DeleteButton: FC<DoneButtonProps> = ({ isFinished, onClick, classes }) => (
 	<Button
 		onClick={onClick}
 		classes={classes}
 	>
-		Done
+		{isFinished ? 'Resume' : 'Done'}
 	</Button>
 );
 

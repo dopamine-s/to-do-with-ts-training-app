@@ -5,10 +5,11 @@ import TodoItem from '../TodoItem/TodoItem';
 
 interface TodoListProps {
 	items: TodoInterface[];
+	onDoneTodo: (id: string) => void;
 	onRemoveTodo: (id: string) => void;
 }
 
-const Todos: FC<TodoListProps> = ({ items, onRemoveTodo }) => {
+const Todos: FC<TodoListProps> = ({ items, onDoneTodo, onRemoveTodo }) => {
 	return (
 		<ul>
 			{items.map((item) => (
@@ -16,7 +17,9 @@ const Todos: FC<TodoListProps> = ({ items, onRemoveTodo }) => {
 					key={item.id}
 					id={item.id}
 					title={item.title}
+					isFinished={item.isFinished}
 					onRemoveTodo={onRemoveTodo}
+					onDoneTodo={onDoneTodo}
 				/>
 			))}
 		</ul>

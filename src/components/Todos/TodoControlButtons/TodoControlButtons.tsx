@@ -9,14 +9,21 @@ interface DeleteButtonProps {
 	onDoneTodo(): void;
 	onEditTodo(): void;
 	onRemoveTodo(): void;
+	isFinished: boolean;
 }
 
-const TodoControlButtons: FC<DeleteButtonProps> = ({ onDoneTodo, onEditTodo, onRemoveTodo }) => {
+const TodoControlButtons: FC<DeleteButtonProps> = ({
+	isFinished,
+	onDoneTodo,
+	onEditTodo,
+	onRemoveTodo,
+}) => {
 	return (
 		<div className={styles.buttons}>
 			<DoneButton
 				onClick={onDoneTodo}
 				classes="done"
+				isFinished={isFinished}
 			/>
 			<EditButton
 				onClick={onEditTodo}

@@ -11,10 +11,11 @@ import TodosWrapper from './TodosWrapper/TodosWrapper';
 const Todos = () => {
 	const [todos, setTodos] = useState<TodoInterface[]>([]);
 
-	const addTodoHandler = (todoText: string) => {
+	const addTodoHandler = (todoText: string): void => {
 		const newTodo = {
-			title: todoText,
 			id: uuidv4(),
+			title: todoText,
+			isFinished: false,
 		};
 
 		setTodos((prevTodos) => {
@@ -22,7 +23,29 @@ const Todos = () => {
 		});
 	};
 
-	const removeTodoHandler = (todoId: string) => {
+	const doneTodoHandler = (todoId: string): void => {
+		const currentTodo = todos.find((todo) => todo.id === todoId);
+
+		if (!currentTodo) return;
+
+		const currentTodoIndex = todos.indexOf(currentTodo);
+
+		const updatedTodo = {
+			...currentTodo,
+		};
+
+		updatedTodo.isFinished = !updatedTodo.isFinished;
+
+		setTodos((prevTodos) => {
+			return [
+				...prevTodos.slice(0, currentTodoIndex),
+				updatedTodo,
+				...prevTodos.slice(currentTodoIndex + 1, prevTodos.length),
+			];
+		});
+	};
+
+	const removeTodoHandler = (todoId: string): void => {
 		setTodos((prevTodos) => {
 			return prevTodos.filter((todo) => todo.id !== todoId);
 		});
@@ -42,6 +65,7 @@ const Todos = () => {
 						<p className={styles['todos-text']}>use buttons to manage todos</p>
 						<TodoList
 							items={todos}
+							onDoneTodo={doneTodoHandler}
 							onRemoveTodo={removeTodoHandler}
 						/>
 					</div>
