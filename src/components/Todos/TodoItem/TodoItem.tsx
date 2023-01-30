@@ -1,5 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { todosActions } from '../../../store';
 import Input from '../../UI/Input/Input';
 import TodoControlButtons from '../TodoControlButtons/TodoControlButtons';
 import styles from './TodoItem.module.css';
@@ -8,25 +10,16 @@ interface TodoItemProps {
 	title: string;
 	id: string;
 	isFinished: boolean;
-	onDoneTodo: (id: string) => void;
-	onRemoveTodo: (id: string) => void;
-	onSaveEditTodo: (id: string, newTitle: string) => void;
 }
 
-const TodoItem: FC<TodoItemProps> = ({
-	title,
-	id,
-	isFinished,
-	onDoneTodo,
-	onRemoveTodo,
-	onSaveEditTodo,
-}) => {
+const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 	const [isEditMode, setIsEditMode] = useState(false);
 	const [isValid, setIsValid] = useState<boolean>(true);
 	const [newTitle, setNewTitle] = useState<string>(title);
+	const dispatch = useDispatch();
 
-	const toggleTodoDoneHandler = () => {
-		onDoneTodo(id);
+	const toggleTodoDoneHandler = (): void => {
+		dispatch(todosActions.updateTodo({ id, title, isFinished: !isFinished }));
 	};
 
 	const changeEditModeHandler = () => {
@@ -35,7 +28,11 @@ const TodoItem: FC<TodoItemProps> = ({
 	};
 
 	const removeTodoHandler = () => {
-		onRemoveTodo(id);
+		dispatch(
+			todosActions.removeTodo({
+				id,
+			}),
+		);
 	};
 
 	const todoInputChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -54,7 +51,15 @@ const TodoItem: FC<TodoItemProps> = ({
 
 			return;
 		}
-		onSaveEditTodo(id, newTitle);
+
+		dispatch(
+			todosActions.updateTodo({
+				id,
+				title: newTitle,
+				isFinished,
+			}),
+		);
+
 		changeEditModeHandler();
 	};
 

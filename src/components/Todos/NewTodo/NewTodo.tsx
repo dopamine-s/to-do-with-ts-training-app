@@ -1,16 +1,16 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
+import { todosActions } from '../../../store';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import styles from './NewTodo.module.css';
 
-interface NewTodoProps {
-	onAddTodo: (todoTitle: string) => void;
-}
-
-const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
+const NewTodo: FC = () => {
 	const [title, setTitle] = useState<string>('');
 	const [isValid, setIsValid] = useState<boolean>(true);
+	const dispatch = useDispatch();
 
 	const todoInputChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
 		if (event.target.value.trim().length > 0) {
@@ -30,7 +30,13 @@ const NewTodo: FC<NewTodoProps> = ({ onAddTodo }) => {
 			return;
 		}
 
-		onAddTodo(todoTitle);
+		dispatch(
+			todosActions.addTodo({
+				id: uuidv4(),
+				title: todoTitle,
+				isFinished: false,
+			}),
+		);
 		setTitle('');
 	};
 
