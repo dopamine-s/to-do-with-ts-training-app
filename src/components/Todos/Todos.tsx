@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { State } from '../../store';
@@ -8,7 +9,7 @@ import NoTodos from './NoTodos/NoTodos';
 import styles from './Todos.module.css';
 import TodosWrapper from './TodosWrapper/TodosWrapper';
 
-const Todos = () => {
+const Todos: FC = () => {
 	const todos: TodoInterface[] = useSelector((state: State) => state.todos);
 
 	return (

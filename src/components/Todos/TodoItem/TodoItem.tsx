@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { todosActions } from '../../../store';
@@ -13,21 +13,29 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
-	const [isEditMode, setIsEditMode] = useState(false);
+	const [isEditMode, setIsEditMode] = useState<boolean>(false);
 	const [isValid, setIsValid] = useState<boolean>(true);
 	const [newTitle, setNewTitle] = useState<string>(title);
 	const dispatch = useDispatch();
+
+	const onKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
+		if (isEditMode) {
+			if (event.key === 'Enter') {
+				saveEditTodoHandler();
+			}
+		}
+	};
 
 	const toggleTodoDoneHandler = (): void => {
 		dispatch(todosActions.updateTodo({ id, title, isFinished: !isFinished }));
 	};
 
-	const changeEditModeHandler = () => {
+	const changeEditModeHandler = (): void => {
 		setNewTitle(title);
 		setIsEditMode((prevState) => !prevState);
 	};
 
-	const removeTodoHandler = () => {
+	const removeTodoHandler = (): void => {
 		dispatch(
 			todosActions.removeTodo({
 				id,
@@ -77,6 +85,7 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 					onChange={todoInputChangeHandler}
 					value={newTitle}
 					isValid={isValid}
+					onKeyDown={onKeyDown}
 				/>
 			)}
 			<TodoControlButtons
