@@ -46,15 +46,14 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 	const todoInputChangeHandler = (event: ChangeEvent<HTMLInputElement>): void => {
 		if (event.target.value.trim().length > 0) {
 			setIsValid(true);
-			setNewTitle(event.target.value);
 		} else {
-			setNewTitle(title);
+			setIsValid(false);
 		}
+		setNewTitle(event.target.value);
 	};
 
 	const saveEditTodoHandler = (): void => {
-		if (!newTitle || newTitle.trim().length === 0) {
-			setIsValid(false);
+		if (!newTitle || (newTitle && !isValid)) {
 			setNewTitle(title);
 
 			return;
