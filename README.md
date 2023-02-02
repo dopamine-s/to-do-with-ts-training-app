@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+<h1 align="center">Welcome to «React Todo App» with Typescript and Redux 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Frontend Assessment «React Todo App» with Typescript and Redux.
 
-## Available Scripts
+### 🏠 [Homepage](https://github.com/dopamine-s/to-do-with-ts-training-app)
 
-In the project directory, you can run:
+## Install
 
-### `npm start`
+```sh
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+npm start
+```
 
-### `npm test`
+## Author
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+👤 **Fedor Klochkov**
 
-### `npm run build`
+> - Github: [@dopamine-s](https://github.com/dopamine-s)
+> - LinkedIn: [@fedor-dopamine](https://linkedin.com/in/fedor-dopamine)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Show your support
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Give a ⭐️ if this project helped you!
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## About «React Todo App with Typescript and Redux» SPA:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Frontend Assessment React SPA
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> The goal of the project was to create a SPA for working with todo tasks.
 
-## Learn More
+### Expected Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> - React, React-Redux\*
+> - JavaScript / TypeScript
+> - Styling via Styled Components or CSS Modules\*\*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+\* It's possible to use custom setup or Create React App. Redux is expected.  
+\*\* It's not allowed to use CSS frameworks like Bootstrap or Tailwind. CSS-preprocessors are welcomed to use.
+
+### Application Description
+
+> The purpose of this assessment is to check the familiarity with frontend technologies and methodologies, programming patterns, and thought processes
+
+### Tasks:
+
+> - Possibility to create and add a todo task in the list;
+> - Possibility to edit todos;
+> - Possibility to mark todos as done;
+> - Possibility of removing todos;
+> - Todos should be kept in local storage.
+> - Empty todos are not allowed.
