@@ -1,0 +1,13 @@
+.inner-wrapper {
+	margin: 0.5rem 0;
+
+	& label {
+		font-weight: bold;
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	&.invalid label {
+		color: var(--color-label-invalid);
+	}
+}

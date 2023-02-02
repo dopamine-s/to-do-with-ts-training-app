@@ -1,7 +1,9 @@
 import { FC } from 'react';
 
-import styles from './NoTodos.module.css';
+import styles from './NoTodos.module.scss';
 
-const NoTodos: FC = () => <p className={styles['no-todos']}>No Todos found. Maybe add one?</p>;
+const NoTodos: FC = () => {
+	return <p className={styles['no-todos']}>No Todos found. Maybe add one?</p>;
+};
 
 export default NoTodos;

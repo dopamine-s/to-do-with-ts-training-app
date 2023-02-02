@@ -1,0 +1,19 @@
+.input {
+	display: block;
+	width: 100%;
+	border: 1px solid var(--border-input-color);
+	font: inherit;
+	line-height: 2rem;
+	padding: 0 0.25rem;
+
+	&:focus {
+		outline: none;
+		background: var(--background-input-focus);
+		border-color: var(--border-input-color-focus);
+	}
+
+	&.invalid {
+		background: var(--background-input-invalid);
+		border-color: var(--border-input-color-invalid);
+	}
+}

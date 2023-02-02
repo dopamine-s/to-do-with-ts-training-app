@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -5,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { todosActions } from '../../../store';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
-import styles from './NewTodo.module.css';
+import styles from './NewTodo.module.scss';
 
 const NewTodo: FC = () => {
 	const [title, setTitle] = useState<string>('');
@@ -42,7 +43,7 @@ const NewTodo: FC = () => {
 
 	return (
 		<form onSubmit={submitHandler}>
-			<div className={`${styles['inner-wrapper']} ${!isValid && styles.invalid}`}>
+			<div className={classnames(styles['inner-wrapper'], { [styles.invalid]: !isValid })}>
 				<label htmlFor="text">Todo text</label>
 				<Input
 					onChange={todoInputChangeHandler}
@@ -52,7 +53,7 @@ const NewTodo: FC = () => {
 			</div>
 			<Button
 				type="submit"
-				classes="input"
+				variant="input"
 			>
 				Add Todo
 			</Button>

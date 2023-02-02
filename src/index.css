@@ -4,27 +4,40 @@
 	/* Colors */
 
 	--background-primary: rgb(250, 241, 248);
-	--background-input-focus: #f7e0ef;
-	--background-input-invalid: #f7f3f3;
-	--background-button-input: #8b005d;
-	--background-button-done: #0b553e;
-	--background-button-edit: #0d637e;
-	--background-button-delete: #7c1752;
-	--background-todo-item: #rgb(250, 241, 248);
 
-	--border-input-color: #ccc;
-	--border-input-color-focus: #8b005d;
-	--border-input-color-invalid: #ce0e34;
-	--border-input-button: #8b005d;
-	--border-color-primary: rgba(0, 0, 0, 0.1);
+	--pink-1: #8b005d;
+	--pink-2: #7c1752;
+	--pink-3: #f7e0ef;
+	--green-1: #0b553e;
+	--blue-1: #0d637e;
+	--red-1: #ce0e34;
+	--red-2: #f80b3b;
+	--gray-1: #f7f3f3;
+	--gray-2: #ccc;
 
-	--box-shadow-button: rgba(0, 0, 0, 0.26);
-	--box-shadow-todo-item: rgba(0, 0, 0, 0.26);
-	--box-shadow-todo-form: rgba(0, 0, 0, 0.2);
+	--box-shadow-10: rgba(0, 0, 0, 0.1);
+	--box-shadow-20: rgba(0, 0, 0, 0.2);
+	--box-shadow-26: rgba(0, 0, 0, 0.26);
+
+	--background-input-focus: var(--pink-3);
+	--background-input-invalid: var(--gray-1);
+	--background-button-input: var(--pink-1);
+	--background-button-done: var(--green-1);
+	--background-button-edit: var(--blue-1);
+	--background-button-delete: var(--pink-2);
+
+	--border-input-color: var(--gray-2);
+	--border-input-color-focus: var(--pink-1);
+	--border-input-color-invalid: var(--red-1);
+	--border-input-button: var(--pink-1);
+	--border-color-primary: var(--box-shadow-10);
+
+	--box-shadow-button: var(--box-shadow-10);
+	--box-shadow-todo-item: var(--box-shadow-26);
+	--box-shadow-todo-form: var(--box-shadow-20);
 
 	--color-button: white;
-	--color-todo-item: black;
-	--color-label-invalid: #f80b3b;
+	--color-label-invalid: var(--red-2);
 }
 
 *,

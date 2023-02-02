@@ -1,3 +1,5 @@
+@import '../../../styles/mediaVariables.scss';
+
 .buttons {
 	display: flex;
 	flex-direction: column;
@@ -5,17 +7,13 @@
 	background-color: var(--background-primary);
 	gap: 0.5rem;
 	border-radius: 0.2rem;
-}
 
-@media (min-width: 768px) {
-	.buttons {
+	@media (min-width: $breakpoint-md) {
 		margin-left: 2rem;
 		margin-top: 1rem;
 	}
-}
 
-@media (min-width: 1600px) {
-	.buttons {
+	@media (min-width: $breakpoint-xl) {
 		flex-direction: row;
 		height: 3.8rem;
 		align-self: top;

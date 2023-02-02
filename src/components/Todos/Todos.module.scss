@@ -5,10 +5,10 @@
 	padding: 2rem;
 	box-shadow: 0 2px 12px var(--box-shadow-todo-form);
 	border-radius: 10px;
-}
 
-.todos-form h2 {
-	display: none;
+	& h2 {
+		display: none;
+	}
 }
 
 .todos-text {

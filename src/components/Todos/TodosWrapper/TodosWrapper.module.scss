@@ -1,0 +1,19 @@
+@import '../../../styles/mediaVariables.scss';
+
+.todos {
+	width: 35rem;
+	max-width: 90%;
+	margin: 3rem auto;
+
+	@media (min-width: $breakpoint-md) {
+		padding: 0 2rem;
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		width: 50rem;
+	}
+
+	@media (min-width: $breakpoint-xl) {
+		width: 70rem;
+	}
+}

@@ -1,0 +1,92 @@
+@import '../../../styles/mediaVariables.scss';
+
+.button {
+	width: 100%;
+	font: inherit;
+	padding: 0.5rem 0.3rem;
+	border: 1px solid;
+	border-color: var(--border-color-primary);
+	color: var(--color-button);
+	box-shadow: 0 0 4px var(--box-shadow-button);
+	cursor: pointer;
+	opacity: 0.8;
+
+	@media (min-width: $breakpoint-md) {
+		width: 7rem;
+		padding: 0.5rem 1rem;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover,
+	&:active {
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+	}
+
+	&.input {
+		background: var(--background-button-input);
+		border-color: var(--border-input-button);
+		padding: 0.5rem;
+		opacity: 1;
+
+		@media (min-width: $breakpoint-md) {
+			width: auto;
+			padding: 0.5rem 1.5rem;
+		}
+
+		&:hover,
+		&:active {
+			background: #ac0e77;
+			border-color: #ac0e77;
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+		}
+	}
+
+	&.done {
+		background: var(--background-button-done);
+	}
+
+	&.edit {
+		background: var(--background-button-edit);
+	}
+
+	&.delete {
+		background: var(--background-button-delete);
+	}
+
+	&.done:hover,
+	&.done:active,
+	&.edit:hover,
+	&.edit:active,
+	&.delete:hover,
+	&.delete:active {
+		opacity: 1;
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		&.done,
+		&.edit,
+		&.delete {
+			padding: 0.5rem;
+		}
+
+		&.input {
+			padding: 0.6rem 1.5rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-xl) {
+		&.done,
+		&.edit,
+		&.delete {
+			width: 6rem;
+		}
+
+		&.input {
+			padding: 0.9rem 1.5rem;
+		}
+	}
+}

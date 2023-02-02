@@ -1,22 +1,36 @@
-import { FC, ReactNode } from 'react';
+import classnames from 'classnames';
+import { FC, PropsWithChildren } from 'react';
 
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
 	type?: 'button' | 'submit' | 'reset';
-	children: ReactNode;
+	variant?: 'delete' | 'done' | 'edit' | 'input';
 	onClick?: () => void;
-	classes?: string | undefined;
 }
 
-const Button: FC<ButtonProps> = ({ type = 'button', children, onClick, classes }) => (
-	<button
-		type={type}
-		className={classes ? styles.button + ' ' + styles[`${classes}`] : styles.button}
-		onClick={onClick}
-	>
-		{children}
-	</button>
-);
+const Button: FC<PropsWithChildren<ButtonProps>> = ({
+	type = 'button',
+	children,
+	onClick,
+	variant,
+}) => {
+	const buttonClassnames = classnames(styles.button, {
+		[styles.done]: variant === 'done',
+		[styles.delete]: variant === 'delete',
+		[styles.edit]: variant === 'edit',
+		[styles.input]: variant === 'input',
+	});
+
+	return (
+		<button
+			type={type}
+			className={buttonClassnames}
+			onClick={onClick}
+		>
+			{children}
+		</button>
+	);
+};
 
 export default Button;

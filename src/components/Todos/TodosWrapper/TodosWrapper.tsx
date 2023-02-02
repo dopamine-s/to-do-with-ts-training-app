@@ -1,12 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-import styles from './TodosWrapper.module.css';
+import styles from './TodosWrapper.module.scss';
 
-interface TodosWrapperProps {
-	children: ReactNode;
-}
-
-const TodosWrapper: FC<TodosWrapperProps> = ({ children }) => (
+const TodosWrapper: FC<PropsWithChildren> = ({ children }) => (
 	<main className={styles.todos}>{children}</main>
 );
 

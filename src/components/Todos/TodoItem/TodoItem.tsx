@@ -1,10 +1,11 @@
+import classnames from 'classnames';
 import { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { todosActions } from '../../../store';
 import Input from '../../UI/Input/Input';
 import TodoControlButtons from '../TodoControlButtons/TodoControlButtons';
-import styles from './TodoItem.module.css';
+import styles from './TodoItem.module.scss';
 
 interface TodoItemProps {
 	title: string;
@@ -19,10 +20,8 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 	const dispatch = useDispatch();
 
 	const onKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
-		if (isEditMode) {
-			if (event.key === 'Enter') {
-				saveEditTodoHandler();
-			}
+		if (isEditMode && event.key === 'Enter') {
+			saveEditTodoHandler();
 		}
 	};
 
@@ -31,6 +30,7 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 	};
 
 	const changeEditModeHandler = (): void => {
+		setIsValid(true);
 		setNewTitle(title);
 		setIsEditMode((prevState) => !prevState);
 	};
@@ -54,8 +54,6 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 
 	const saveEditTodoHandler = (): void => {
 		if (!newTitle || (newTitle && !isValid)) {
-			setNewTitle(title);
-
 			return;
 		}
 
@@ -70,14 +68,12 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, isFinished }) => {
 		changeEditModeHandler();
 	};
 
+	const todoItemClassnames = classnames(styles['todo-item'], {
+		[styles.finished]: !isEditMode && isFinished,
+	});
+
 	return (
-		<li
-			className={
-				!isEditMode && isFinished
-					? styles['todo-item'] + ' ' + styles.finished
-					: styles['todo-item']
-			}
-		>
+		<li className={todoItemClassnames}>
 			{!isEditMode && <p>{title}</p>}
 			{isEditMode && (
 				<Input

@@ -25,7 +25,7 @@ export const todosSlice = createSlice({
 
 			if (!currentTodo) return;
 
-			const currentTodoIndex = currentTodo && state.todos.indexOf(currentTodo);
+			const currentTodoIndex = state.todos.indexOf(currentTodo);
 
 			state.todos = [
 				...state.todos.slice(0, currentTodoIndex),
