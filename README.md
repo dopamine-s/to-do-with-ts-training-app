@@ -5,7 +5,7 @@
 
 > Frontend Assessment «React Todo App» with Typescript and Redux.
 
-### 🏠 [Homepage](https://github.com/dopamine-s/f1-seasons)
+### 🏠 [Homepage](https://github.com/dopamine-s/to-do-with-ts-training-app)
 
 ## Install
 
